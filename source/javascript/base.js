@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 var helper = {
     querySelectorAll: function(selector, domFragment) {
         var nodes = domFragment.querySelectorAll(selector),
