@@ -1,11 +1,24 @@
 'use strict'
+var helper = {
+    querySelectorAll: function(selector, domFragment) {
+        var nodes = domFragment.querySelectorAll(selector),
+            results = [];
+
+        for(i = 0; i < nodes.length; i++) {
+            results.push(nodes[i]);
+        }
+
+        return results;
+    }
+}
+
 var base = function() {
     var elements = new Map();
     function getDefinitionLists(definitionListNodes) {
         for(var i = 0; i < definitionListNodes.length; i++) {
-            var parent = definitionListNodes[i].querySelector('dd');
+            var parent = helper.querySelectorAll('dd', definitionListNodes[i]);
             _setElement(parent, null);
-            var child = definitionListNodes[i].querySelectorAll('dt');
+            var child = helper.querySelectorAll('dt', definitionListNodes[i]);
             for(var j = 0; j < child.length; j++) {
                 _setElement(child[j], parent);
             }
