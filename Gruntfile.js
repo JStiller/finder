@@ -20,12 +20,12 @@ module.exports = function(grunt) {
             watch: {
                 styles: {
                     // Which files to watch (all .less files recursively in the less directory)
-                    files: ['less/**/*.less'],
+                    files: ['source/less/**/*.less'],
                     tasks: ['less']
                 },
                 js: {
                     // Which files to watch (all .less files recursively in the less directory)
-                    files: ['javascript/**/*.js'],
+                    files: ['source/javascript/**/*.js'],
                     tasks: ['uglify']
                 }
             },
