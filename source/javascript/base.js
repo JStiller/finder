@@ -4,7 +4,7 @@ var helper = {
         var nodes = domFragment.querySelectorAll(selector),
             results = [];
 
-        for(i = 0; i < nodes.length; i++) {
+        for(var i = 0; i < nodes.length; i++) {
             results.push(nodes[i]);
         }
 
@@ -17,10 +17,13 @@ var base = function() {
     function getDefinitionLists(definitionListNodes) {
         for(var i = 0; i < definitionListNodes.length; i++) {
             var parent = helper.querySelectorAll('dd', definitionListNodes[i]);
-            _setElement(parent, null);
-            var child = helper.querySelectorAll('dt', definitionListNodes[i]);
-            for(var j = 0; j < child.length; j++) {
-                _setElement(child[j], parent);
+            for(var j = 0; j < parent.length; j++) {
+                _setElement(parent[j], null);
+                var child = helper.querySelectorAll('dt', definitionListNodes[i]);
+                for(var k = 0; k < child.length; k++) {
+                    _setElement(child[k], parent[j]);
+                    // console.log(child[k], parent[j]);
+                }
             }
         }
     }
@@ -75,7 +78,7 @@ var base = function() {
                     node['reference'].innerHTML = node['reference'].innerText.replace(keyword, '<mark>' + keyword + '</mark>');
                 });
             }
-        });
+        }, this);
     }
 
     return {
