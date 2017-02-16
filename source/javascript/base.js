@@ -62,8 +62,10 @@ var base = function() {
     }
 
     function search(keyword) {
+        var regEx = new RegExp('(' + keyword + ')', 'i');
+
         elements.forEach(function(value, key) {
-            if(key.search(keyword) == -1) {
+            if(key.search(regex) == -1) {
                 value.forEach(function(node) {
                     if(!node['reference'].classList.contains('hidden')) {
                         node['reference'].classList.add('hidden');
@@ -75,7 +77,7 @@ var base = function() {
                         node['reference'].classList.remove('hidden');
                     }
 
-                    node['reference'].innerHTML = node['reference'].innerText.replace(keyword, '<mark>' + keyword + '</mark>');
+                    node['reference'].innerHTML = node['reference'].innerText.replace(regEx, '<mark>$1</mark>');
                 });
             }
         }, this);
