@@ -9,11 +9,11 @@ module.exports = function(grunt) {
                         syncImport: true,
                         sourceMap: true,
                         strictImports: true,
-                        sourceMapFilename: './css/base.css.map',
-                        sourceMapURL: './base.css.map'
+                        sourceMapFilename: 'css/base.css.map',
+                        sourceMapURL: 'base.css.map'
                     },
                     files: {
-                        './css/base.css': './less/base.less'
+                        'css/base.css': 'source/less/base.less'
                     }
                 }
             },
@@ -32,15 +32,17 @@ module.exports = function(grunt) {
             uglify: {
                 options: {
                     mangle: false,
-                    compress: false,
+                    compress: true,
                     preserveComments: 'all',
                     beautify: false,
+                    sourceMap: true,
+                    sourceMapName: 'javascript/javascript.js.map',
                     banner: '/*! <%= grunt.template.today("yyyy-mm-dd") %> */\n'
                 },
                 general: {
                     files: {
-                        './javascript/javascript.js': [
-                            'javascript/base.js'
+                        'javascript/javascript.js': [
+                            'source/javascript/**/*.js'
                         ]
                     }
                 }
