@@ -4,10 +4,11 @@ module.exports = function (config) {
         frameworks: ['jasmine'],
         files: [
             'node_modules/es6-shim/es6-shim.js',
-            'source/javascript/**/*.js'
+            'source/javascript/**/*.js',
+            'source/tests/**/*Test.js'
         ],
         preprocessors: {
-            'source/javascript/*.js': ['coverage']
+            'source/javascript/**/*.js': ['coverage']
         },
         plugins: [
             'karma-jasmine',
