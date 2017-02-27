@@ -42,7 +42,10 @@ module.exports = function(grunt) {
                 general: {
                     files: {
                         'javascript/javascript.js': [
-                            'source/javascript/**/*.js'
+                            'source/javascript/helper.js',
+                            'source/javascript/dom.js',
+                            'source/javascript/finder.js',
+                            'source/javascript/base.js'
                         ]
                     }
                 }
