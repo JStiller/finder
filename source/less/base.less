@@ -1,3 +1,116 @@
+@import (once, less) 'reset.less';
+
 .hidden {
     display: none;
+}
+
+form {
+    input {
+        display: inline-block;
+        min-height: unit(4.4, rem);
+        min-width: unit(4.4, rem);
+        outline: 0;
+        background-color: #FFB800;
+        border: 0;
+        color: #FFF;
+        font-size: unit(2.2, rem);
+
+        &[type=search], &[type=text], &[type=password] {
+            border-bottom: 3px solid #FFF;
+        }
+    }
+}
+
+header, main {
+    box-sizing: border-box;
+    font-family: Arial;
+    font-size: unit(1.6, rem);
+    width: 100vw;
+}
+
+header {
+    position: fixed;
+    background-color: #FFB800;
+    padding: unit(1.5, rem);
+    box-shadow: 0 5px 5px 0 rgba(0,0,0, 0.25);
+
+    form {
+        fieldset {
+            label {
+                input {
+                    &[type=search] {
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+main {
+    padding: unit(7.6, rem) 0 0;
+
+    dl {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        align-items: flex-start;
+        align-content: flex-start;
+        width: 100vw;
+        margin: 0 0 unit(1.5, rem);
+
+        dd, dt {
+            display: flex;
+            width: 100%;
+            min-height: unit(4.4, rem);
+            line-height: unit(3.4, rem);
+            padding: 0 unit(1.5, rem);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+
+            &.purple {
+                background-image: linear-gradient(90deg, #9C27B0 5px, #FFF 5px);
+
+                & > a {
+                    &::after {
+                        color: #9C27B0;
+                    }
+                }
+            }
+
+            &.blue {
+                background-image: linear-gradient(90deg, #2196F3 5px, #FFF 5px);
+
+                & > a {
+                    &::after {
+                        color: #2196F3;
+                    }
+                }
+            }
+
+            &.lime {
+                background-image: linear-gradient(90deg, #CDDC39 5px, #FFF 5px);
+
+                & > a {
+                    &::after {
+                        color: #CDDC39;
+                    }
+                }
+            }
+
+            & > a {
+                position: relative;
+                width: 100%;
+                color: #000;
+                text-decoration: none;
+
+                &::after {
+                    content: attr(href);
+                    font-size: unit(1, rem);
+                    position: absolute;
+                    left: 0;
+                    top: unit(1.4, rem);
+                }
+            }
+        }
+    }
 }
