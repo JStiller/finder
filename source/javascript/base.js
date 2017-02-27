@@ -3,18 +3,6 @@ var businessLogic = function(finder) {
     var definitionLists = document.querySelectorAll('dl');
     finder.index(definitionLists);
 
-    function _hide(node) {
-        if(!node['reference'].classList.contains('hidden')) {
-            node['reference'].classList.add('hidden');
-        }
-    }
-
-    function _show(node) {
-        if(node['reference'].classList.contains('hidden')) {
-            node['reference'].classList.remove('hidden');
-        }
-    }
-
     function search(keyword) {
         var regEx = new RegExp('(' + keyword + ')', 'i');
         var show = finder.search(regEx, true);
@@ -22,14 +10,14 @@ var businessLogic = function(finder) {
 
         show.forEach(function(nodeList) {
             nodeList[1].forEach(function(node) {
-                _show(node);
+                dom.show(node['reference']);
                 node['reference'].innerHTML = node['reference'].innerText.replace(regEx, '<mark>$1</mark>');
             });
         }, this);
 
         hide.forEach(function(nodeList) {
             nodeList[1].forEach(function(node) {
-                _hide(node);
+                dom.hide(node['reference']);
             });
         }, this);
     }
