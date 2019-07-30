@@ -1,13 +1,18 @@
-'use strict';
-var finder = function() {
-    var elements = new Map();
+function finder(dependency) {
+    const elements = new Map();
     function index(definitionListNodes) {
-        for(var i = 0; i < definitionListNodes.length; i++) {
-            var parent = helper.querySelectorAll('dd', definitionListNodes[i]);
-            for(var j = 0; j < parent.length; j++) {
+        for(let i = 0; i < definitionListNodes.length; i++) {
+            let parent = dependency.dom.find('dd', {
+                context: definitionListNodes[i],
+                quantity: 'all'
+            });
+            for(let j = 0; j < parent.length; j++) {
                 // _setElement(parent[j], null);
-                var child = helper.querySelectorAll('dt', definitionListNodes[i]);
-                for(var k = 0; k < child.length; k++) {
+                let child = dependency.dom.find('dt', {
+                    context: definitionListNodes[i],
+                    quantity: 'all'
+                });
+                for(let k = 0; k < child.length; k++) {
                     _setElement(child[k], parent[j]);
                     // console.log(child[k], parent[j]);
                 }
@@ -18,8 +23,8 @@ var finder = function() {
     function _setElement(newElement, parent) {
         if(elements.has(newElement.innerText)) {
             // console.log("known", newElement);
-            var knownElements = elements.get(newElement.innerText);
-            var add = true;
+            let knownElements = elements.get(newElement.innerText);
+            let add = true;
             knownElements.forEach(function(element) {
                 // console.log("element['reference']: ", element['reference'], "knownElements :", newElement, element['reference'] == newElement);
                 if(element['reference'] == newElement) {
@@ -49,10 +54,10 @@ var finder = function() {
     }
 
     function search(regEx, match) {
-        var results = Array.from(elements);
+        let results = Array.from(elements);
 
         return results.filter(function(result) {
-            var subject = result[0];
+            let subject = result[0];
             if(subject.search(regEx) == -1) {
                 return !match;
             }
@@ -62,7 +67,9 @@ var finder = function() {
     }
 
     return {
-        index: index,
-        search: search
+        index,
+        search
     }
-}
+};
+
+export default finder;
