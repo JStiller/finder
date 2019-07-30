@@ -4,20 +4,11 @@
   "description": "A simple finder for web links which are embedded in a html file",
   "main": "index.htm",
   "scripts": {
-    "test": "karma start karma.conf.js"
+    "build": "parcel index.htm"
   },
   "devDependencies": {
-    "grunt": "1.0.1",
-    "grunt-contrib-less": "1.4.0",
-    "grunt-contrib-uglify": "2.1.0",
-    "grunt-contrib-watch": "1.0.0",
-    "istanbul": "0.4.5",
-    "jasmine-core": "2.5.2",
-    "karma": "1.4.1",
-    "karma-coverage": "1.1.1",
-    "karma-jasmine": "1.1.0",
-    "karma-phantomjs-launcher": "1.0.2",
-    "es6-shims": "1.1.0"
+    "less": "^3.9.0",
+    "parcel-bundler": "1.12.3"
   },
   "author": "José Stiller",
   "license": "MIT"
