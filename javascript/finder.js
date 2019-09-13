@@ -49,6 +49,7 @@ function finder(dependency) {
                 "reference": newElement
                 // "keywords": [],
                 // "childs": new Map()
+                // test
             }]);
         }
     }
