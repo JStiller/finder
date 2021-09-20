@@ -2,13 +2,14 @@
   "name": "finder",
   "version": "1.0.0",
   "description": "A simple finder for web links which are embedded in a html file",
-  "main": "index.htm",
+  "main": "javascript/base.js",
   "scripts": {
     "build": "parcel index.htm"
   },
   "devDependencies": {
+    "@parcel/transformer-less": "^2.0.0-rc.0",
     "less": "^3.9.0",
-    "parcel-bundler": "1.12.3"
+    "parcel": "v2.0.0-rc.0"
   },
   "author": "José Stiller",
   "license": "MIT"
